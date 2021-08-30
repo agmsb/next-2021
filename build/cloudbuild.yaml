@@ -1,5 +1,4 @@
 steps:
-
   # build container image
 - id: build
   name: gcloud
@@ -8,7 +7,6 @@ steps:
     - '-c'
     - |
       gcloud alpha builds submit --pack image=gcr.io/$PROJECT_ID/next-2021-app:$COMMIT_SHA
-
  # deploy container image to Cloud Run
  - id: deploy
    name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -23,13 +21,11 @@ steps:
    - 'REGION'
  images:
  - 'gcr.io/$PROJECT_ID/next-2021-app:$COMMIT_SHA'
-
 # enable secrets
 availableSecrets:
   secretManager:
   - versionName: projects/agmsb-k8s/secrets/custom-key/versions/latest
     env: CUSTOM_KEY
-
 # enable private pool
 options:
   workerPool: 'projects/agmsb-k8s/locations/us-west1/workerPools/sandbox-privatepool'
