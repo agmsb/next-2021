@@ -9,7 +9,7 @@ steps:
       gcloud alpha builds submit --pack image=gcr.io/$PROJECT_ID/next-2021-app:$COMMIT_SHA || true
 # Open pull request against env repo. 
 - id: Create GitHub pull request
-  name: "gcr.io/agmsb-k8s/gcloud"
+  name: "gcr.io/cloud-builders/curl"
   entrypoint: "bash"
   secretEnv: ['GH_TOKEN']
   args:
