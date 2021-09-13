@@ -10,15 +10,17 @@ steps:
  images:
  - 'gcr.io/$PROJECT_ID/next-2021-app:$COMMIT_SHA'
 # enable secrets
-- id: git
-  name: gcr.io/agmsb-k8s/gcloud
-  entrypoint: "/bin/bash"
+- id: Create GitHub pull request
+  name: 'launcher.gcr.io/google/ubuntu1604'
+  entrypoint: bash
   args:
-    - './update-git.sh'
+  - -c
+  - curl -X POST -H "Authorization:Bearer $$GH_TOKEN" -H 'Accept:application/vnd.github.v3+json' https://api.github.com/repos/agmsb/next-2021/pulls -d '{"head":"main","base":"development", "title":"PR from development on $$SHORTSHA"}'
+  secretEnv: ['GH_TOKEN']
 availableSecrets:
   secretManager:
-  - versionName: projects/agmsb-k8s/secrets/gh/versions/latest
-    env: GH_KEY
+  - versionName: projects/agmsb-k8s/secrets/gh-token/versions/latest
+    env: GH_TOKEN
 # enable private pool
 options:
   workerPool: 'projects/agmsb-k8s/locations/us-west1/workerPools/sandbox-privatepool'
