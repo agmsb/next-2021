@@ -23,3 +23,4 @@ availableSecrets:
 # Run on a private pool.
 options:
   workerPool: 'projects/agmsb-k8s/locations/us-west1/workerPools/sandbox-privatepool'
+  logging: CLOUD_LOGGING_ONLY
