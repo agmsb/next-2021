@@ -2,7 +2,7 @@ steps:
   # Build container image.
 - id: Build container image
   name: "gcr.io/agmsb-k8s/gcloud"
-  entrypoint: "/bin/bash"
+  entrypoint: "bash"
   args:
     - '-c'
     - |
