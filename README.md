@@ -1,13 +1,14 @@
 # next-2021
 
-Setup
+## Setup
+
+Create Cloud Build Trigger for builds. 
 
 ```
-gcloud beta builds triggers create github \
-    --repo-name=REPO_NAME \
-    --repo-owner=REPO_OWNER \
-    --branch-pattern=BRANCH_PATTERN \ # or --tag-pattern=TAG_PATTERN
-    --build-config=BUILD_CONFIG_FILE \
-    --service-account=SERVICE_ACCOUNT \
-    --require-approval
+gcloud beta builds triggers create development-trigger \
+    --repo-name=next-2021 \
+    --repo-owner=agmsb \
+    --branch-pattern=development \ 
+    --build-config=buid/build.yaml \
+    --service-account=build-next-2021@agmsb-k8s.iam.gserviceaccount.com \
 ```
