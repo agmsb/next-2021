@@ -11,11 +11,11 @@ steps:
 - id: Create GitHub pull request
   name: "gcr.io/agmsb-k8s/gcloud"
   entrypoint: "bash"
+  secretEnv: ['GH_TOKEN']
   args:
     - '-c'
     - |
       'curl -X POST -u agmsb:$${GH_TOKEN} -d '{"head":"development","base":"main", "title":"PR from development"}' https://api.github.com/repos/agmsb/next-2021/pulls'
-  secretEnv: ['GH_TOKEN']
 availableSecrets:
   secretManager:
   - versionName: projects/agmsb-k8s/secrets/github-token/versions/latest
