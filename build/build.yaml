@@ -6,7 +6,7 @@ steps:
   args:
     - '-c'
     - |
-      gcloud alpha builds submit --pack image=gcr.io/$PROJECT_ID/next-2021-app:$COMMIT_SHA
+      gcloud alpha builds submit --pack image=gcr.io/$PROJECT_ID/next-2021-app:$COMMIT_SHA || true
 # Open pull request against env repo. 
 - id: Create GitHub pull request
   name: "launcher.gcr.io/google/ubuntu1604"
