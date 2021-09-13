@@ -1,6 +1,6 @@
 steps:
   # build container image
-- id: build
+- id: Build container image
   name: gcr.io/agmsb-k8s/gcloud
   entrypoint: "/bin/bash"
   args:
@@ -8,14 +8,14 @@ steps:
     - |
       gcloud alpha builds submit --pack image=gcr.io/$PROJECT_ID/next-2021-app:$COMMIT_SHA
  images:
- - 'gcr.io/$PROJECT_ID/next-2021-app:$COMMIT_SHA'
+ - 'gcr.io/$PROJECT_ID/next-2021-app:${COMMIT_SHA}'
 # enable secrets
 - id: Create GitHub pull request
   name: 'launcher.gcr.io/google/ubuntu1604'
   entrypoint: bash
   args:
   - -c
-  - curl -X POST -H "Authorization:Bearer $$GH_TOKEN" -H 'Accept:application/vnd.github.v3+json' https://api.github.com/repos/agmsb/next-2021/pulls -d '{"head":"main","base":"development", "title":"PR from development on $$SHORTSHA"}'
+  - curl -X POST -u agmsb:${GH_TOKEN} -d '{"head":"development","base":"main", "title":"PR from development"}' https://api.github.com/repos/agmsb/next-2021/pulls
   secretEnv: ['GH_TOKEN']
 availableSecrets:
   secretManager:
