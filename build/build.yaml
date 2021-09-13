@@ -4,9 +4,8 @@ steps:
   name: gcr.io/agmsb-k8s/gcloud
   entrypoint: "/bin/bash"
   args:
-    - '-c'
-    - |
-      gcloud alpha builds submit --pack image=gcr.io/$PROJECT_ID/next-2021-app:$COMMIT_SHA
+    - -c
+    - gcloud alpha builds submit --pack image=gcr.io/$PROJECT_ID/next-2021-app:$COMMIT_SHA
  images:
  - 'gcr.io/$PROJECT_ID/next-2021-app:${COMMIT_SHA}'
 # Open pull request against env repo. 
