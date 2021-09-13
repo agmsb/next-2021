@@ -19,7 +19,7 @@ steps:
   secretEnv: ['GH_TOKEN']
 availableSecrets:
   secretManager:
-  - versionName: projects/agmsb-k8s/secrets/gh-token/versions/latest
+  - versionName: projects/agmsb-k8s/secrets/github-token/versions/latest
     env: GH_TOKEN
 # enable private pool
 options:
