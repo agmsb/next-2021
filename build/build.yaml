@@ -18,7 +18,7 @@ steps:
       curl -X POST -u agmsb:$${GH_TOKEN} -d '{"head":"development","base":"main", "title":"PR from development"}' https://api.github.com/repos/agmsb/next-2021/pulls
 availableSecrets:
   secretManager:
-  - versionName: projects/agmsb-k8s/secrets/github-token/versions/latest
+  - versionName: projects/agmsb-k8s/secrets/github_token/versions/latest
     env: GH_TOKEN
 # Run on a private pool.
 options:
