@@ -20,5 +20,6 @@ gcloud beta builds triggers create github \
     --repo-owner=agmsb \
     --branch-pattern=main \
     --build-config=build/deploy.yaml \
+    --require-approval \
     --service-account=deploy-next-2021@agmsb-k8s.iam.gserviceaccount.com
 ```
