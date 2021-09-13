@@ -14,9 +14,9 @@ steps:
   name: 'launcher.gcr.io/google/ubuntu1604'
   entrypoint: bash
   args:
-  - '-c'
-  - |
-    curl -X POST -u agmsb:${GH_TOKEN} -d '{"head":"development","base":"main", "title":"PR from development"}' https://api.github.com/repos/agmsb/next-2021/pulls
+    - '-c'
+    - |
+      curl -X POST -u agmsb:${GH_TOKEN} -d '{"head":"development","base":"main", "title":"PR from development"}' https://api.github.com/repos/agmsb/next-2021/pulls
   secretEnv: ['GH_TOKEN']
 availableSecrets:
   secretManager:
