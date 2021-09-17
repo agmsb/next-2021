@@ -2,11 +2,11 @@ steps:
   # Build container image.
 - id: Build container image
   name: "gcr.io/k8s-skaffold/pack"
-  entrypoint: "bash"
+  entrypoint: "pack"
   args:
-    - '-c'
-    - |
-      pack build gcr.io/agmsb-k8s/next-2021-app --builder gcr.io/buildpacks/builder
+    - 'build'
+    - 'gcr.io/agmsb-k8s/next-2021-app'
+    - '--builder gcr.io/buildpacks/builder'
 # Open pull request against env repo. 
 - id: Create GitHub pull request
   name: "gcr.io/cloud-builders/curl"
