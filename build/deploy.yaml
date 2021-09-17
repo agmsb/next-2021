@@ -1,6 +1,6 @@
 steps:
 - id: Deploy to Cloud Run
-  name: 'gcr.io/cloud-builders/gcloud'
+  name: 'gcr.io/agmsb-k8s/gcloud'
   args: ['run', 'deploy', 'next-app-2021', '--image', 'gcr.io/agmsb-k8s/next-app-2021:latest', '--region', 'us-west1', '--platform', 'managed']
 options:
   logging: CLOUD_LOGGING_ONLY
