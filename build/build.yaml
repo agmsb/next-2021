@@ -6,7 +6,8 @@ steps:
   args:
     - 'build'
     - 'gcr.io/agmsb-k8s/next-2021-app'
-    - '--builder gcr.io/buildpacks/builder'
+    - '--builder'
+    - 'gcr.io/buildpacks/builder'
 # Open pull request against env repo. 
 - id: Create GitHub pull request
   name: "gcr.io/cloud-builders/curl"
