@@ -6,7 +6,7 @@ steps:
   args:
     - '-c'
     - |
-      gcloud alpha builds submit --pack image=gcr.io/$PROJECT_ID/next-2021-app:$COMMIT_SHA || true
+      gcloud alpha builds submit --pack image=gcr.io/$PROJECT_ID/next-2021-app || true
 # Open pull request against env repo. 
 - id: Create GitHub pull request
   name: "gcr.io/cloud-builders/curl"
@@ -15,7 +15,7 @@ steps:
   args:
     - '-c'
     - |
-      curl -X POST -u agmsb:$${GH_TOKEN} -d '{"head":"development","base":"main", "title":"PR from development"}' https://api.github.com/repos/agmsb/next-2021/pulls
+      curl -X POST -u agmsb:$${GH_TOKEN} -d '{"head":"development","base":"main", "title":"PR from feature branch $SHORT_SHA"}' https://api.github.com/repos/agmsb/next-2021/pulls
 availableSecrets:
   secretManager:
   - versionName: projects/agmsb-k8s/secrets/github_token/versions/latest
