@@ -34,6 +34,7 @@ availableSecrets:
   secretManager:
   - versionName: projects/agmsb-k8s/secrets/github_token/versions/latest
     env: GH_TOKEN
+
 # Run on a private pool.
 options:
   workerPool: 'projects/agmsb-k8s/locations/us-west1/workerPools/sandbox-privatepool'
