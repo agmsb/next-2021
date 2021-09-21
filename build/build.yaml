@@ -5,9 +5,11 @@ steps:
   entrypoint: "pack"
   args:
     - 'build'
+    - '--publish'
     - 'gcr.io/agmsb-k8s/next-2021-app:${SHORT_SHA}'
     - '--builder'
     - 'gcr.io/buildpacks/builder'
+
   # Attest container image
 - id: Attest container image
   name: 'gcr.io/agmsb-k8s/binauthz-attestation:latest'
@@ -18,6 +20,7 @@ steps:
     - 'projects/agmsb-k8s/attestors/cloud-run-attestor'
     - '--keyversion'
     - 'projects/agmsb-k8s/locations/us-west1/keyRings/mkgbush/cryptoKeys/mkgbush-key/cryptoKeyVersions/1'
+
 # Open pull request against env repo. 
 - id: Create GitHub pull request
   name: "gcr.io/cloud-builders/curl"
