@@ -5,7 +5,7 @@ steps:
   entrypoint: "pack"
   args:
     - 'build'
-    - 'gcr.io/agmsb-k8s/next-2021-app'
+    - 'gcr.io/agmsb-k8s/next-2021-app:${SHORT_SHA}'
     - '--builder'
     - 'gcr.io/buildpacks/builder'
   # Attest container image
@@ -13,7 +13,7 @@ steps:
   name: 'gcr.io/agmsb-k8s/binauthz-attestation:latest'
   args:
     - '--artifact-url'
-    - 'gcr.io/agmsb-k8s/next-2021-app'
+    - 'gcr.io/agmsb-k8s/next-2021-app:${SHORT_SHA}'
     - '--attestor'
     - 'projects/agmsb-k8s/attestors/cloud-run-attestor'
     - '--keyversion'
