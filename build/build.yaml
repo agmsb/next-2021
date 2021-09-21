@@ -6,7 +6,7 @@ steps:
   args:
     - 'build'
     - '--publish'
-    - 'gcr.io/agmsb-k8s/next-2021-app:${SHORT_SHA}'
+    - 'gcr.io/agmsb-k8s/next-2021-app:latest'
     - '--builder'
     - 'gcr.io/buildpacks/builder'
 
@@ -15,7 +15,7 @@ steps:
   name: 'gcr.io/agmsb-k8s/binauthz-attestation:latest'
   args:
     - '--artifact-url'
-    - 'gcr.io/agmsb-k8s/next-2021-app:${SHORT_SHA}'
+    - 'gcr.io/agmsb-k8s/next-2021-app:latest'
     - '--attestor'
     - 'projects/agmsb-k8s/attestors/cloud-run-attestor'
     - '--keyversion'
