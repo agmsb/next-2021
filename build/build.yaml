@@ -17,7 +17,7 @@ steps:
     - '--attestor'
     - 'projects/agmsb-k8s/attestors/cloud-run-attestor'
     - '--keyversion'
-    - 'projects/agmsb-k8s/locations/us-west1/keyRings/mkgbush/cryptoKeys/mkgbush-key/cryptoKeyVersions/latest'
+    - 'projects/agmsb-k8s/locations/us-west1/keyRings/mkgbush/cryptoKeys/mkgbush-key/cryptoKeyVersions/1'
 # Open pull request against env repo. 
 - id: Create GitHub pull request
   name: "gcr.io/cloud-builders/curl"
